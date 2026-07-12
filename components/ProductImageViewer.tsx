@@ -22,7 +22,6 @@ export default function ProductImageViewer({
 }: Props) {
   return (
     <Dialog>
-      {/* Base UI uses the 'render' prop instead of 'asChild' */}
       <DialogTrigger
         render={
           <Button
@@ -36,9 +35,11 @@ export default function ProductImageViewer({
         View Image
       </DialogTrigger>
 
-      {/* Your DialogContent component automatically displays the close button */}
-      <DialogContent className="max-w-md rounded-2xl p-3 sm:max-w-2xl">
-        <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-muted mt-6">
+      {/* Changed dialog width to fit-content on large screens and added flex rules */}
+      <DialogContent className="flex flex-col max-w-md w-full rounded-2xl p-4 sm:max-w-2xl sm:w-auto h-auto max-h-[90vh]">
+        
+        {/* Container that dynamically caps the image height on desktop screens */}
+        <div className="relative aspect-square w-full sm:w-[500px] max-h-[60vh] sm:max-h-[70vh] overflow-hidden rounded-xl bg-muted mt-6 mx-auto">
           <Image
             src={image}
             alt={name}
@@ -48,7 +49,7 @@ export default function ProductImageViewer({
           />
         </div>
 
-        <h3 className="text-center text-lg font-semibold">
+        <h3 className="text-center text-lg font-semibold mt-2 truncate">
           {name}
         </h3>
       </DialogContent>
