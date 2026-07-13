@@ -40,7 +40,12 @@ export default function Header() {
               <DropdownMenuItem render={<Link href="/admin" />}>
                 Profile
               </DropdownMenuItem>
+              <DropdownMenuItem render={<Link href="/rejoin" />}>
+                Log
+              </DropdownMenuItem>
             </DropdownMenuContent>
+
+            
           </DropdownMenuPortal>
         </DropdownMenu>
       </div>
