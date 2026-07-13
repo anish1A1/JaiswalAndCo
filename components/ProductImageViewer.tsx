@@ -39,7 +39,7 @@ export default function ProductImageViewer({
       <DialogContent className="flex flex-col max-w-md w-full rounded-2xl p-4 sm:max-w-2xl sm:w-auto h-auto max-h-[90vh]">
         
         {/* Container that dynamically caps the image height on desktop screens */}
-        <div className="relative aspect-square w-full sm:w-[500px] max-h-[60vh] sm:max-h-[70vh] overflow-hidden rounded-xl bg-muted mt-6 mx-auto">
+        <div className="relative aspect-square w-full sm:w-125 max-h-[60vh] sm:max-h-[70vh] overflow-hidden rounded-xl bg-muted mt-6 mx-auto">
           <Image
             src={image}
             alt={name}

@@ -7,13 +7,15 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuPortal, // 1. Added Portal import
 } from "@/components/ui/dropdown-menu";
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-200 border-b bg-white">
+    // 2. Fixed z-200 to z-[200] (using brackets for arbitrary values)
+    <header className="sticky top-0 border-b bg-white">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         {/* Logo */}
         <Link
@@ -31,11 +33,15 @@ export default function Header() {
               </Avatar>
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Logout</DropdownMenuItem>
-          </DropdownMenuContent>
+          {/* 3. Wrapped with Portal so the menu floats perfectly on mobile viewports */}
+          <DropdownMenuPortal>
+            <DropdownMenuContent align="end">
+              {/* 1. Added the render prop to inject the Link component safely */}
+              <DropdownMenuItem render={<Link href="/admin" />}>
+                Profile
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenuPortal>
         </DropdownMenu>
       </div>
     </header>
