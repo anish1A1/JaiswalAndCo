@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { spawn } from "child_process"
 
 export default function LoginPage(){
 
@@ -18,7 +17,7 @@ export default function LoginPage(){
         setloading(true)
 
         try {
-            const res = await fetch('/api/admin/login/',{
+            const res = await fetch('/api/admin/login',{
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({user, password})

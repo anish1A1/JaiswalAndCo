@@ -34,7 +34,7 @@ export default async function AdminPage() {
 
   // Server-side route authorization gate
   if (session !== 'true') {
-    redirect('/login')
+    redirect('/rejoin')
   }
 
   const products = await getInventoryProducts()
