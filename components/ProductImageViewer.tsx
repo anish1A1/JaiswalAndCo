@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 
 import { Button } from "@/components/ui/button";
+import { lazy } from "react";
 
 interface Props {
   image: string;
@@ -43,7 +44,8 @@ export default function ProductImageViewer({
           <img
             src={image}
             alt={name}
-            className="object-contain"
+            className="w-full h-full object-contain p-2"
+            loading="lazy"
           />
         </div>
 

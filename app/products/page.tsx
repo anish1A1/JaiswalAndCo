@@ -1,14 +1,18 @@
-import ProductGrid from "@/components/ProductGrid";
-import { getCachedProducts } from "@/lib/products";
+import { getCachedProducts, getCachedCategories } from "@/lib/products";
+import CatalogueFilterWrapper from "@/components/CatalogueFilterWrapper";
 
 export default async function ProductsPage() {
-  const products = await getCachedProducts()
+  // Concurrent asynchronous data extraction from memory cache layers
+  const [products, categories] = await Promise.all([
+    getCachedProducts(),
+    getCachedCategories()
+  ]);
 
   return (
-    <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 min-h-screen bg-slate-50/50">
+    <main className="mx-auto max-w-360 px-4 sm:px-6 lg:px-8 py-10 min-h-screen bg-slate-50/50">
       
       {/* Sleek, Modern Section Header */}
-      <div className="mb-10 pb-5 border-b border-gray-200/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="mb-8 pb-5 border-b border-gray-200/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
             Product Catalogue
@@ -18,9 +22,8 @@ export default async function ProductsPage() {
           </p>
         </div>
         
-        {/* Dynamic Items Counter Badge */}
         <div className="self-start sm:self-center px-4 py-2 bg-white rounded-xl border border-gray-200 text-xs font-bold text-gray-600 shadow-sm">
-          📊 {products.length} Items Listed
+          📊 {products.length} Total Skus
         </div>
       </div>
 
@@ -31,7 +34,8 @@ export default async function ProductsPage() {
           <p className="text-xs text-gray-400 mt-1">Please log into the admin desk to publish inventory assets.</p>
         </div>
       ) : (
-        <ProductGrid products={products} />
+        /* 🚀 New interactive filtering layer passing properties cleanly downstream */
+        <CatalogueFilterWrapper products={products} categories={categories} />
       )}
     </main>
   );
