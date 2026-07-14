@@ -28,28 +28,46 @@ export default function ProductImageViewer({
           <Button
             variant="outline"
             size="sm"
-            className="w-full gap-2"
+            className="h-6 w-6 rounded-full p-0"
           />
         }
       >
         <Expand className="h-4 w-4" />
-        View Image
       </DialogTrigger>
 
       {/* Changed dialog width to fit-content on large screens and added flex rules */}
-      <DialogContent className="flex flex-col max-w-md w-full rounded-2xl p-4 sm:max-w-2xl sm:w-auto h-auto max-h-[90vh]">
-        
+      <DialogContent
+        className="
+        w-[95vw]
+        max-w-[95vw]
+
+        sm:max-w-xl
+
+        lg:max-w-2xl
+
+        rounded-xl
+
+        p-3
+
+        sm:p-5
+        "
+        >
+                
         {/* Container that dynamically caps the image height on desktop screens */}
-        <div className="relative aspect-square w-full sm:w-125 max-h-[60vh] sm:max-h-[70vh] overflow-hidden rounded-xl bg-muted mt-6 mx-auto">
+        <div className="relative w-full sm:w-125 max-h-[65vh] sm:max-h-[75vh] flex items-center justify-center overflow-hidden rounded-xl bg-muted mt-6 mx-auto">
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-contain p-2"
+            className="w-auto
+                max-w-full
+                h-auto
+                max-h-[65vh]
+                object-contain"
             loading="lazy"
           />
         </div>
 
-        <h3 className="text-center text-lg font-semibold mt-2 truncate">
+        <h3 className="text-center text-sm sm:text-lg  font-semibold mt-2 truncate">
           {name}
         </h3>
       </DialogContent>

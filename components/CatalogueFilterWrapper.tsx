@@ -18,22 +18,22 @@ export default function CatalogueFilterWrapper({ products, categories }: Props) 
     : products.filter(product => product.category?.toLowerCase() === selectedCategory.toLowerCase())
 
   return (
-    <div className="space-y-6 sm:space-y-8 w-full max-w-full overflow-hidden">
+    <div className="space-y-4 sm:space-y-6 lg:space-y-8 w-full max-w-full overflow-hidden">
       
       {/* 🏷️ Horizontal Category Filter Pills (Mobile Swipe Optimized) */}
       <div className="w-full block">
-        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2.5 px-1 sm:px-0">
+        <p className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2.5 px-1 sm:px-0">
           Filter by Category
         </p>
         
         {/* Container creates an edge-to-edge swiping channel on tiny mobile phone frames */}
-        <div className="w-full overflow-x-auto pb-3 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none touch-pan-x">
+        <div className="w-full overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-none touch-pan-x">
           <div className="flex flex-row flex-nowrap items-center gap-2 w-max min-w-full pr-4 sm:pr-0">
             
             {/* 'All' Selection Pill */}
             <button
               onClick={() => setSelectedCategory('All')}
-              className={`h-10 px-4 rounded-xl text-xs font-bold whitespace-nowrap transition-all shadow-xs border inline-flex items-center justify-center ${
+              className={`h-8 sm:h-10 px-3 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-all border inline-flex items-center justify-center ${
                 selectedCategory === 'All'
                   ? "bg-slate-900 border-slate-900 text-white"
                   : "bg-white border-gray-200 text-slate-600 hover:bg-gray-50 active:scale-[0.97]"
@@ -57,7 +57,7 @@ export default function CatalogueFilterWrapper({ products, categories }: Props) 
                   }`}
                 >
                   {cat} 
-                  <span className={`text-[10px] ml-1.5 px-1.5 py-0.5 rounded-md font-mono ${
+                  <span className={`text-[9px] sm:text-[10px] ml-1.5 px-1 sm:px-1.5 py-0.5 rounded-md font-mono ${
                     selectedCategory === cat ? 'bg-white/20 text-white' : 'bg-slate-100 text-gray-400'
                   }`}>
                     {count}

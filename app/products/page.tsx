@@ -9,20 +9,20 @@ export default async function ProductsPage() {
   ]);
 
   return (
-    <main className="mx-auto max-w-360 px-4 sm:px-6 lg:px-8 py-10 min-h-screen bg-slate-50/50">
+    <main className="mx-auto w-full max-w-[1700px] px-3 sm:px-5 lg:px-8 py-5 sm:py-8 lg:py-10 min-h-screen bg-slate-50/50">
       
       {/* Sleek, Modern Section Header */}
-      <div className="mb-8 pb-5 border-b border-gray-200/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="mb-5 sm:mb-8 pb-4 sm:pb-5 border-b border-gray-200/80 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-900 l">
             Product Catalogue
           </h1>
-          <p className="text-sm text-gray-500 font-medium mt-1.5">
+          <p className="text-xs sm:text-sm text-gray-500 font-medium mt-1.5">
             Explore our real-time wholesale dealership inventory layers.
           </p>
         </div>
         
-        <div className="self-start sm:self-center px-4 py-2 bg-white rounded-xl border border-gray-200 text-xs font-bold text-gray-600 shadow-sm">
+        <div className="self-start sm:self-center px-3 py-1.5 text-[11px] sm:px-4 sm:py-2 sm:text-xs bg-white rounded-xl border border-gray-200 font-bold text-gray-600 shadow-sm">
           📊 {products.length} Total Products
         </div>
       </div>

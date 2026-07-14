@@ -23,20 +23,27 @@ export default function ProductCard({ product }: ProductCardProps) {
   const isOutOfStock = Number(product.stockAvailable) <= 0;
 
   return (
-    <Card className="group overflow-hidden rounded-xl border border-gray-200/70 bg-white p-0 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full">
+    <Card className="group overflow-hidden rounded-xl border border-gray-200/70 bg-white p-0 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full">
       
       {/* 1. Image Container (Highly Optimized for Small Mobile Viewports) */}
-      <div className="relative h-32 sm:h-44 w-full bg-slate-50 border-b border-gray-100 flex items-center justify-center p-2">
+      <div className="relative h-24 sm:h-36 md:h-44 w-full bg-slate-50 border-b border-gray-100 flex items-center justify-center p-1 sm:p-2">
         <img
           src={product.image || "/products/placeholder.png"}
           alt={product.name}
-          className="max-w-full max-h-full h-auto w-auto object-contain p-1 transition-transform duration-300 group-hover:scale-[1.02]"
+          className="
+            max-w-[92%]
+            max-h-[92%]
+            object-contain
+            transition-transform
+            duration-300
+            group-hover:scale-105
+            "
           loading="lazy"
         />
 
         {/* Small Tightly Positioned Category Badge */}
-        <div className="absolute top-1.5 left-1.5 z-10">
-          <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-wider bg-slate-900/90 text-white px-1.5 py-0.5 rounded-md shadow-xs">
+        <div className="absolute top-1 left-1 z-10">
+          <span className="text-[7px] sm:text-[9px] font-black uppercase tracking-wider bg-slate-900/90 text-white px-1 py-0.5 rounded-md shadow-xs">
             {product.category}
           </span>
         </div>
@@ -51,19 +58,19 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* 2. Content & Textual Metadata Blocks */}
-      <div className="p-2 sm:p-4 space-y-1.5 sm:space-y-3 flex-1 flex flex-col justify-between">
+      <div className="p-2 sm:p-4 space-y-2 flex-1 flex flex-col justify-between">
         
         <div className="space-y-0.5">
-          <p className="text-[9px] font-bold text-blue-600 uppercase tracking-tight">
+          <p className="text-[8px] sm:text-[10px] font-bold text-blue-600 uppercase tracking-tight">
             {product.brand}
           </p>
-          <h3 className="line-clamp-2 text-xs sm:text-sm font-extrabold text-slate-800 tracking-tight leading-tight min-h-8 sm:min-h-10">
+          <h3 className="line-clamp-2 text-[11px] sm:text-sm font-extrabold text-slate-800 tracking-tight leading-tight sm:min-h-10 min-h-8.5">
             {product.name}
           </h3>
         </div>
 
         {/* Compact Net Contents Descriptor */}
-        <div className="flex items-center justify-between text-[10px] sm:text-xs border-y border-gray-100 py-1 sm:py-2">
+        <div className="flex items-center justify-between text-[11px] sm:text-xs border-y border-gray-100 py-1.5">
           <span className="text-gray-400 font-medium">Weight</span>
           <span className="font-bold text-slate-600 bg-gray-100 px-1.5 py-0.5 rounded-sm scale-90 sm:scale-100">
             {product.weight}
@@ -71,18 +78,18 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Pricing Matrix Setup (Compact & Read-Optimized for Mobile) */}
-        <div className="rounded-lg sm:rounded-xl border border-gray-100 bg-slate-50/60 p-1.5 sm:p-3 space-y-0.5 sm:space-y-1.5">
+        <div className="rounded-lg sm:rounded-2xl border border-gray-100 bg-slate-50/60 p-2 sm:p-3 space-y-0.5 sm:space-y-1.5">
           <div className="flex justify-between items-center text-[10px] sm:text-xs">
             <span className="text-gray-400 font-medium">MRP</span>
-            <span className="font-bold text-gray-400 line-through">
-              ₹{Number(product.mrp).toFixed(0)}
+            <span className="font-bold text-gray-400 ">
+              Rs. {Number(product.mrp).toFixed(0)}
             </span>
           </div>
 
           <div className="flex justify-between items-center pt-0.5 border-t border-gray-200/50">
             <span className="text-[10px] sm:text-xs text-slate-500 font-bold">Dealer</span>
-            <span className="text-xs sm:text-base font-black text-emerald-600 tracking-tight">
-              ₹{Number(product.dealerRate).toFixed(0)}
+            <span className="text-xs  sm:text-lg font-black text-emerald-600 tracking-tight">
+              Rs. {Number(product.dealerRate).toFixed(0)}
             </span>
           </div>
         </div>
@@ -90,7 +97,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Stock Alerts Display Strip */}
         <div className="flex items-center justify-between text-[9px] sm:text-xs pt-0.5">
           <span className="text-gray-400 font-medium">Availability</span>
-          <span className={`font-black uppercase text-[8px] sm:text-[10px] tracking-wide px-1.5 py-0.5 rounded-md border ${
+          <span className={`font-black uppercase text-[9px] sm:text-[10px] tracking-wide px-1.5 py-0.5 rounded-md border ${
             isOutOfStock 
               ? "bg-red-50 text-red-600 border-red-100" 
               : "bg-emerald-50 text-emerald-700 border-emerald-100"
