@@ -27,6 +27,12 @@ export default async function HomePage() {
               {/* Product Layout Image Card */}
               <div className="relative w-full aspect-square bg-slate-100 rounded-xl overflow-hidden mb-4 flex items-center justify-center text-3xl">
                 📦 {/* Replace with <Image /> tag when you mount live images */}
+                <img 
+                        src={product.image || "/products/placeholder.png"} 
+                        alt={product.name}
+                        className="w-full h-full object-contain p-2"
+                        loading="lazy"
+                      />
               </div>
 
               <div>
@@ -44,11 +50,12 @@ export default async function HomePage() {
                   <p className="text-[10px] font-bold text-gray-400 uppercase tracking-tight">Price</p>
                   <p className="text-lg font-black text-slate-900">${Number(product.mrp).toFixed(2)}</p>
                 </div>
+
+                <div>
+                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-tight">Retail Price</p>
+                  <p className="text-lg font-black text-slate-900">${Number(product.dealerRate).toFixed(2)}</p>
+                </div>
                 
-                {/* Thumb-friendly mobile action button */}
-                <button className="h-9 px-4 rounded-xl bg-slate-900 text-white text-xs font-bold shadow-sm active:scale-[0.97] transition-all">
-                  Buy Now
-                </button>
               </div>
 
             </div>

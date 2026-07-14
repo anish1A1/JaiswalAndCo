@@ -33,6 +33,7 @@ export default function LoginPage(){
             router.refresh()
 
         } catch (error:any) {
+            console.error(error)
             seterror(error.message)
         } finally {
             setloading(false)
