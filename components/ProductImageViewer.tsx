@@ -40,11 +40,9 @@ export default function ProductImageViewer({
         
         {/* Container that dynamically caps the image height on desktop screens */}
         <div className="relative aspect-square w-full sm:w-125 max-h-[60vh] sm:max-h-[70vh] overflow-hidden rounded-xl bg-muted mt-6 mx-auto">
-          <Image
+          <img
             src={image}
             alt={name}
-            fill
-            priority
             className="object-contain"
           />
         </div>
