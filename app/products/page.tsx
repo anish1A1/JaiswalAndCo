@@ -23,7 +23,7 @@ export default async function ProductsPage() {
         </div>
         
         <div className="self-start sm:self-center px-4 py-2 bg-white rounded-xl border border-gray-200 text-xs font-bold text-gray-600 shadow-sm">
-          📊 {products.length} Total Skus
+          📊 {products.length} Total Products
         </div>
       </div>
 
