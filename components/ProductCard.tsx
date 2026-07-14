@@ -20,7 +20,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const isLowStock = Number(product.stockAvailable) > 0 && Number(product.stockAvailable) <= 10;
+  const isLowStock = Number(product.stockAvailable) > 0 && Number(product.stockAvailable) <= 3;
   const isOutOfStock = Number(product.stockAvailable) <= 0;
 
   return (
@@ -28,14 +28,12 @@ export default function ProductCard({ product }: ProductCardProps) {
       
       {/* 1. Top Section (Image and Hover Overlay Actions) */}
       <div className="relative aspect-square overflow-hidden bg-slate-50 border-b border-gray-100 flex items-center justify-center p-4">
-        <Image
-          src={product.image || "/products/placeholder.png"}
-          alt={product.name}
-          fill
-          className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.04]"
-          sizes="(max-w-7xl) 25vw"
-          priority={false}
-        />
+        <img 
+                        src={product.image || "/products/placeholder.png"} 
+                        alt={product.name}
+                        className="w-full h-full object-contain p-2"
+                        loading="lazy"
+                      />
 
         {/* Dynamic Category Tag Overlay */}
         <div className="absolute top-3 left-3 z-10">
