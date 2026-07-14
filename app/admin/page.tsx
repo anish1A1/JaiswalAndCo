@@ -55,13 +55,19 @@ export default async function AdminPage() {
           </div>
           
           <nav className="space-y-1">
-            <a href="/admin" className="flex items-center gap-3 py-2.5 px-4 rounded-xl bg-slate-800 text-white font-bold text-sm">
-              <span>📊</span> Dashboard Home
-            </a>
-            <a href="/admin/new" className="flex items-center gap-3 py-2.5 px-4 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white font-medium text-sm transition-all">
-              <span>➕</span> Create Product
-            </a>
-          </nav>
+                <a href="/admin" className="flex items-center gap-3 py-2.5 px-4 rounded-xl bg-slate-800 text-white font-bold text-sm">
+                    <span>📊</span> Dashboard Home
+                </a>
+
+                <a href="/admin/new" className="flex items-center gap-3 py-2.5 px-4 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white font-medium text-sm transition-all">
+                    <span>➕</span> Create Product
+                </a>
+                
+                <a href="/admin/categories" className="flex items-center gap-3 py-2.5 px-4 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white font-medium text-sm transition-all">
+                    <span>🏷️</span> Manage Categories
+                </a>
+            </nav>
+
         </div>
 
         <form action={handleLogout}>
@@ -221,15 +227,23 @@ export default async function AdminPage() {
 
       {/* 6. MOBILE STICKY BOTTOM NAVIGATION BAR (Visible only on Mobile touch screens) */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] flex justify-around items-center h-16 z-40">
+        
         <a href="/admin" className="flex flex-col items-center justify-center text-blue-600 flex-1 h-full py-1">
-          <span className="text-xl">📊</span>
-          <span className="text-[10px] font-black mt-0.5">Dashboard</span>
+            <span className="text-xl">📊</span>
+            <span className="text-[10px] font-black mt-0.5">Dashboard</span>
         </a>
+
         <a href="/admin/new" className="flex flex-col items-center justify-center text-gray-400 hover:text-slate-700 flex-1 h-full py-1">
-          <span className="text-xl">➕</span>
-          <span className="text-[10px] font-medium mt-0.5">New Product</span>
+            <span className="text-xl">➕</span>
+            <span className="text-[10px] font-medium mt-0.5">New Product</span>
         </a>
-      </nav>
+        {/* 👇 ADD THIS BOTTOM BAR LINK */}
+        <a href="/admin/categories" className="flex flex-col items-center justify-center text-gray-400 hover:text-slate-700 flex-1 h-full py-1">
+            <span className="text-xl">🏷️</span>
+            <span className="text-[10px] font-medium mt-0.5">Categories</span>
+        </a>
+    </nav>
+
 
     </div>
   )

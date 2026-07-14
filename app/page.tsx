@@ -1,22 +1,10 @@
 import { redis } from '@/lib/redis'
-import { unstable_cache } from 'next/cache'
 import Image from 'next/image'
+import { getCachedProducts } from '@/lib/products' 
 
-// 1. Wrap your database query in "unstable_cache" and give it a tag
-const getCachedProducts = unstable_cache(
-  async () => {
-    const productIds = await redis.smembers('products:all')
-    if (!productIds || productIds.length === 0) return []
 
-    const pipeline = redis.pipeline()
-    productIds.forEach((id) => pipeline.hgetall(`product:${id}`))
-    const results = await pipeline.exec()
 
-    return (results.filter(Boolean) as any[]).sort((a, b) => b.createdAt - a.createdAt)
-  },
-  ['all-products-key'], // Internal cache key
-  { tags: ['products-list'] } // 👈 This matches your revalidateTag('products-list')!
-)
+
 
 export default async function HomePage() {
   const products = await getCachedProducts()
