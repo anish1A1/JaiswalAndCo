@@ -79,17 +79,11 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         {/* Pricing Matrix Setup (Compact & Read-Optimized for Mobile) */}
         <div className="rounded-lg sm:rounded-2xl border border-gray-100 bg-slate-50/60 p-2 sm:p-3 space-y-0.5 sm:space-y-1.5">
-          <div className="flex justify-between items-center text-[10px] sm:text-xs">
-            <span className="text-gray-400 font-medium">MRP</span>
-            <span className="font-bold text-gray-400 ">
-              Rs. {Number(product.mrp).toFixed(0)}
-            </span>
-          </div>
 
           <div className="flex justify-between items-center pt-0.5 border-t border-gray-200/50">
-            <span className="text-[10px] sm:text-xs text-slate-500 font-bold">Dealer</span>
+            <span className="text-[10px] sm:text-xs text-slate-500 font-bold">MRP</span>
             <span className="text-xs  sm:text-lg font-black text-emerald-600 tracking-tight">
-              Rs. {Number(product.dealerRate).toFixed(0)}
+              Rs. {Number(product.mrp).toFixed(0)}
             </span>
           </div>
         </div>
