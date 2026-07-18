@@ -178,12 +178,12 @@ export default async function AdminPage() {
                     <div className="grid grid-cols-2 gap-2 mt-3 pt-2.5 border-t border-gray-200/60">
                       <div>
                         <p className="text-[9px] font-bold text-gray-400 uppercase tracking-tight">MRP Price</p>
-                        <p className="text-sm font-black text-slate-900">₹{Number(product.mrp).toFixed(2)}</p>
+                        <p className="text-sm font-black text-slate-900">Rs. {Number(product.mrp).toFixed(2)}</p>
                       </div>
-                      <div>
+                      {/* <div>
                         <p className="text-[9px] font-bold text-gray-400 uppercase tracking-tight">Dealer Rate</p>
                         <p className="text-sm font-black text-blue-600">₹{Number(product.dealerRate).toFixed(2)}</p>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
 

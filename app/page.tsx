@@ -84,13 +84,13 @@ export default async function HomePage() {
                       Maximum Retail Price
                     </p>
                     <p className="text-base sm:text-lg font-black text-slate-900 tracking-tight">
-                      ₹{Number(product.mrp).toFixed(0)}
+                      Rs. {Number(product.mrp).toFixed(0)}
                     </p>
                   </div>
 
                   {/* 🎯 New Visual Anchor: Mobile-first compact button that replaces the empty dealer rate space */}
                   <button className="h-8 px-3.5 rounded-lg bg-slate-900 text-white text-[11px] font-bold shadow-xs hover:bg-slate-800 active:scale-[0.97] transition-all flex items-center justify-center gap-1">
-                    View 📦
+                   📦
                   </button>
                 </div>
 
