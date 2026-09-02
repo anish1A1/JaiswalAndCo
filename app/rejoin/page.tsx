@@ -29,11 +29,7 @@ export default function LoginPage(){
                 throw new Error(data.error || 'Failed to authenticate')
             }
 
-            // 1. CRUCIAL FIX: Force Next.js to purge its page cache and recognize the new cookie
-        router.refresh()
-
-        // 2. Safely proceed to your admin panel
-        router.replace('/admin')
+            window.location.href = '/admin'
 
         } catch (error:any) {
             console.error(error)
