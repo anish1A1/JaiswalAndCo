@@ -29,12 +29,11 @@ export default function LoginPage(){
                 throw new Error(data.error || 'Failed to authenticate')
             }
 
-            router.push('/admin')
-            router.refresh()
+            router.replace('/admin')
 
         } catch (error:any) {
             console.error(error)
-            seterror(error.message)
+            seterror(error instanceof Error ? error.message : 'Something went wrong');
         } finally {
             setloading(false)
         }
