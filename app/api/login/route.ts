@@ -44,7 +44,7 @@ export async function POST(request: Request) {
         maxAge: 60 * 60 * 2, // 2 hours in seconds
         });
 
-
+        
         return NextResponse.json({success: true, 'message': 'Logged In successfully!'})
        
 
