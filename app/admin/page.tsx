@@ -7,9 +7,19 @@ import { Product } from '@/types/product'
 async function handleLogout() {
   'use server'
   const cookieStore = await cookies()
-  cookieStore.delete('admin_cookie')
+  
+  // Set maxAge to 0 to tell the browser to delete the session cookie instantly
+  cookieStore.set('session', '', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    path: '/',
+    maxAge: 0, 
+  })
+  
   redirect('/')
 }
+
 
 // Optimized database fetch parsing all properties from Redis
 async function getInventoryProducts(): Promise<Product[]> {
