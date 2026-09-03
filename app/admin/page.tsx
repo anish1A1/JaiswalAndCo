@@ -102,20 +102,38 @@ export default async function AdminPage() {
       <main className="flex-1 p-4 sm:p-6 md:p-10 max-w-7xl mx-auto w-full">
         
         {/* Dynamic Interactive Heading Row */}
-        <section className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 md:mb-8 border-b border-gray-200 pb-5">
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">Inventory Console</h1>
-            <p className="text-xs sm:text-sm text-gray-500 mt-0.5">Manage stock availability and pricing matrix rows.</p>
-          </div>
-          
-          {/* Thumb-friendly action trigger */}
-          <a 
-            href="/admin/new" 
-            className="h-12 sm:h-11 px-5 rounded-xl bg-blue-600 text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-md shadow-blue-500/10 hover:bg-blue-700 active:scale-[0.99] transition-all"
-          >
-            <span>➕</span> Create New Product
-          </a>
-        </section>
+        <section className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6 md:mb-8 border-b border-gray-200 pb-5">
+  <div>
+    <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">Inventory Console</h1>
+    <p className="text-xs sm:text-sm text-gray-500 mt-0.5">Manage stock availability and pricing matrix rows.</p>
+  </div>
+  
+  {/* Action Buttons Group */}
+  <div className="flex flex-wrap items-center gap-3">
+    <Link 
+      href="/admin/new" 
+      className="h-11 px-5 rounded-xl bg-slate-800 text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-sm hover:bg-slate-900 active:scale-[0.99] transition-all"
+    >
+      <span>➕</span> Create New Product
+    </Link>
+
+    <Link  
+      href="/admin/billing" 
+      className="h-11 px-5 rounded-xl bg-blue-600 text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-md shadow-blue-500/10 hover:bg-blue-700 active:scale-[0.99] transition-all"
+    >
+      <span>🧾</span> Billing
+    </Link>
+
+    <Link  
+      href="/admin/profit" 
+      className="h-11 px-5 rounded-xl bg-emerald-600 text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-md shadow-emerald-500/10 hover:bg-emerald-700 active:scale-[0.99] transition-all"
+    >
+      <span>📈</span> Profit
+    </Link>
+
+  </div>
+</section>
+
 
         {/* 4. METRICS ROW CARD GRIDS */}
         <section className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-6 md:mb-8">
