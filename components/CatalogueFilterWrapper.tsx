@@ -14,7 +14,7 @@ export default function CatalogueFilterWrapper({ products, categories }: Props) 
 
   // Filter products by category safely
   const filteredProducts = selectedCategory === 'All'
-    ? products
+    ? products.sort()
     : products.filter(product => product.category?.toLowerCase() === selectedCategory.toLowerCase())
 
   return (

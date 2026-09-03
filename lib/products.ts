@@ -26,7 +26,6 @@ export const getCachedCategories = unstable_cache(
 
     const categories = await redis.smembers('categories:all')
 
-    console.log('From categories',categories)
     if(!categories) return []
 
     // Sort alphabetically for clean UI listings
