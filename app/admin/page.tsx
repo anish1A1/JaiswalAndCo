@@ -2,6 +2,7 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { redis } from '@/lib/redis'
 import { Product } from '@/types/product'
+import Link from 'next/link'
 
 // Server Action to clear cookies and handle manual session sign-outs
 async function handleLogout() {
@@ -39,18 +40,12 @@ async function getInventoryProducts(): Promise<Product[]> {
 }
 
 export default async function AdminPage() {
-  const cookieStore = await cookies()
-  const session = cookieStore.get('admin_cookie')?.value
-
-  // Server-side route authorization gate
-  if (session !== 'true') {
-    redirect('/rejoin')
-  }
+ 
 
   const products = await getInventoryProducts()
   
   // Calculate specific quick business analytical points
-  const lowStockCount = products.filter(p => Number(p.stockAvailable) <= 10).length
+  const lowStockCount = products.filter(p => Number(p.stockAvailable) <= 4).length
   const totalStockItems = products.reduce((acc, p) => acc + Number(p.stockAvailable || 0), 0)
 
   return (
@@ -60,7 +55,9 @@ export default async function AdminPage() {
       <aside className="hidden md:flex w-64 bg-slate-900 text-white flex-col justify-between p-6 shrink-0 z-30">
         <div>
           <div className="mb-8">
-            <h2 className="text-xl font-black tracking-wider text-blue-400">JS FOODS</h2>
+            <Link href='/' className="text-base font-black tracking-wider text-blue-400 cursor-pointer">
+              JS FOODS  
+            </Link>
             <p className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-0.5">Management Suite</p>
           </div>
           
@@ -90,7 +87,9 @@ export default async function AdminPage() {
       {/* 2. MOBILE HEADER BAR (Visible only on small screens) */}
       <header className="md:hidden bg-slate-900 text-white px-5 py-4 flex justify-between items-center shadow-md sticky top-0 z-40">
         <div>
-          <h2 className="text-base font-black tracking-wider text-blue-400">JS FOODS</h2>
+            <Link href='/' className="text-base font-black tracking-wider text-blue-400 cursor-pointer">
+              JS FOODS  
+            </Link> 
         </div>
         <form action={handleLogout}>
           <button type="submit" className="text-xs bg-red-500/20 text-red-400 px-3 py-1.5 rounded-xl font-bold transition">

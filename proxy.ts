@@ -14,10 +14,14 @@ export async function proxy(request: NextRequest) {
 
     try {
         // 2. Verify token validity at the Vercel Edge
-        await jwtVerify(sessionToken, SECRET);
+        await jwtVerify(sessionToken, SECRET, {
+            algorithms: ["HS256"],
+        });
         return NextResponse.next();
-    } catch (error) {
-        return NextResponse.redirect(new URL('/rejoin', request.url));
+    } catch (error) {   
+        const response =  NextResponse.redirect(new URL('/rejoin', request.url));
+        response.cookies.delete("session"); //remove expired/invalid token
+        return response;
     }
 }
 
