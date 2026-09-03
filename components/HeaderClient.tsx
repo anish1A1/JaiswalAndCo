@@ -19,7 +19,7 @@ export default function HeaderClient({
   hasUser: boolean;
 }) {
   return (
-    <header className="sticky top-0 z-200 w-full border-b border-[#E3E8E2] bg-white/95 backdrop-blur-md shadow-[0_2px_12px_rgba(23,59,43,0.06)]">
+    <header className="sticky top-0 z-200 w-full border-b border-[#E3E8E2]  backdrop-blur-md bg-emerald-500 group-hover:bg-emerald-500 shadow-md shadow-emerald-600/20">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
         {/* Logo */}
