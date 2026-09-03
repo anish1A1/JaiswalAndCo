@@ -1,12 +1,9 @@
-import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
 import { getCachedCategories } from '@/lib/products'
 import { createCategoryAction } from '@/app/api/admin/category/action' 
 import CategoryFormClient from './CategoryFormClient'
 
 export default async function ManageCategoriesPage() {
-  const cookieStore = await cookies()
-  if (cookieStore.get('admin_cookie')?.value !== 'true') redirect('/rejoin')
+  
 
   // Fetch live categories from Redis using your cached helper
   const categories = await getCachedCategories()
