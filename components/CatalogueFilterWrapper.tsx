@@ -13,9 +13,15 @@ export default function CatalogueFilterWrapper({ products, categories }: Props) 
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
 
   // Filter products by category safely
-  const filteredProducts = selectedCategory === 'All'
-    ? products.sort()
+  const baseFiltered = selectedCategory === 'All'
+    ? products
     : products.filter(product => product.category?.toLowerCase() === selectedCategory.toLowerCase())
+
+  const filteredProducts = [...baseFiltered].sort((a,b) => {
+    const brandA = a.brand || "";
+    const brandB = b.brand || "";
+    return brandA.localeCompare(brandB, undefined, {sensitivity: 'base'});
+  })
 
   return (
     <div className="space-y-4 sm:space-y-6 lg:space-y-8 w-full max-w-full overflow-hidden">
