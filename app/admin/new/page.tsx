@@ -1,6 +1,6 @@
 import { getCachedCategories } from '@/lib/products'
 import NewProductFormClient from './NewProductFormClient'
-
+import Link from 'next/link'
 // Keep this component as a Server Component to fetch data securely on startup
 export default async function NewProductPage() {
   // Fetch real categories directly from Redis (via Next.js cache)
@@ -11,9 +11,9 @@ export default async function NewProductPage() {
       <div className="w-full max-w-2xl bg-white rounded-2xl border border-gray-200 shadow-sm p-5 sm:p-8">
         
         <div className="flex items-center gap-3 mb-6">
-          <a href="/admin" className="p-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl text-xs sm:text-sm transition">
+          <Link href="/admin" className="p-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl text-xs sm:text-sm transition">
             ⬅️ Dashboard
-          </a>
+          </Link>
           <div>
             <h1 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight">Add Product</h1>
             <p className="text-xs text-gray-500">Add an item to JS Foods inventory</p>

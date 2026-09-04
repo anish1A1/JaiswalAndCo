@@ -1,6 +1,7 @@
 import { getCachedCategories } from '@/lib/products'
 import { createCategoryAction } from '@/app/api/admin/category/action' 
 import CategoryFormClient from './CategoryFormClient'
+import Link from 'next/link'
 
 export default async function ManageCategoriesPage() {
   
@@ -14,9 +15,10 @@ export default async function ManageCategoriesPage() {
         
         {/* Navigation Heading */}
         <div className="flex items-center gap-3 border-b pb-4">
-          <a href="/admin" className="p-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl text-xs sm:text-sm transition">
+          <Link href="/admin" className="p-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl text-xs sm:text-sm transition">
             ⬅️ Dashboard
-          </a>
+          </Link>
+          
           <div>
             <h1 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight">Product Categories</h1>
             <p className="text-xs text-gray-500">Configure global tags used for stock filtering</p>
