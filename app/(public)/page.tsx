@@ -1,10 +1,32 @@
 import { getCachedProducts } from '@/lib/products' 
 
 export default async function HomePage() {
+
+   const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WholesaleStore",
+    "name": "Jaiswal Kirana & Co Dealers",
+    "url": "https://jaiswalandcodealers.vercel.app/",
+    "priceRange": "Rs.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dharan", 
+      "addressRegion": "Koshi Province", 
+      "addressCountry": "NP"
+    }
+  };
+
   const products = await getCachedProducts()
-  
+
 
   return (
+    <>
+     {/* Injecting Structured Location Schema for Google Bot Detection */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
     <main className="min-h-screen bg-[#F8F7F3] max-w-7xl mx-auto w-full pb-24 px-4 sm:px-8">
       
       {/* Hero Welcome Banner Section */}
@@ -106,5 +128,6 @@ export default async function HomePage() {
         )}
       </section>
     </main>
+  </>
   )
 }

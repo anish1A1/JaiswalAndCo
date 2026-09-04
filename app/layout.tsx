@@ -14,8 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-title: "Jaiswal Kirana & Co Dealers | Premium Wholesale Catalog",
-  description: "Explore our real-time wholesale dealership inventory layers including Dragon, King's, and Big Chef premium items.",  verification: {
+    title: "Jaiswal Kirana & Co Dealers | Wholesale Inventory Catalogue",
+
+    description: "Premium wholesale dealership catalogue in Nepal. Bulk distribution of Dragon, King's, and Big Chef sauces, ketchups, and mix jams.",
+
+    keywords: ["Jaiswal Kirana", "wholesale dealers Nepal", "Dragon ketchup distributor", "kirana store supplier"],
+ 
+    verification: {
     google:"eIutQj9B8fwSleVlq_be0U6xiuud4krIz1rCYbVRmg4",
   }
 };
