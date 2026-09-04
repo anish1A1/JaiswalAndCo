@@ -14,8 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jaiswal Kirana Catalogue",
-  description: "Dealer Product Catalogue",
+title: "Jaiswal Kirana & Co Dealers | Premium Wholesale Catalog",
+  description: "Explore our real-time wholesale dealership inventory layers including Dragon, King's, and Big Chef premium items.",  verification: {
+    google:"eIutQj9B8fwSleVlq_be0U6xiuud4krIz1rCYbVRmg4",
+  }
 };
 
 export default function RootLayout({
